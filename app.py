@@ -109,9 +109,9 @@ with col2:
     st.subheader("Prediction Result")
 
     if predict_btn:
-    if None in [age, glucose, bp, insulin, skin, bmi]:
+      if None in [age, glucose, bp, insulin, skin, bmi]:
         st.warning("⚠ Please fill all fields before prediction.")
-    else:
+      else:
         risk = calculate_risk(age, glucose, bp, insulin, skin, bmi)
 
         st.progress(risk / 100)
@@ -137,5 +137,6 @@ st.markdown("""
 <p style='color:grey'>Developed by Hairtha U | Machine Learning Portfolio Project</p>
 </center>
 """, unsafe_allow_html=True)
+
 
 
