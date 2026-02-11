@@ -69,14 +69,14 @@ with col1:
     c1, c2 = st.columns(2)
 
     with c1:
-        age = st.number_input("Age", 1, 120, 30)
-        glucose = st.number_input("Glucose Level (mg/dL)", 0.0, 300.0, 120.0)
-        bp = st.number_input("Blood Pressure (mm Hg)", 0.0, 200.0, 80.0)
+    age = st.number_input("Age", min_value=1, max_value=120, value=None, placeholder="Enter age")
+    glucose = st.number_input("Glucose Level (mg/dL)", min_value=0.0, max_value=300.0, value=None, placeholder="Enter glucose")
+    bp = st.number_input("Blood Pressure (mm Hg)", min_value=0.0, max_value=200.0, value=None, placeholder="Enter BP")
 
-    with c2:
-        insulin = st.number_input("Insulin (mu U/ml)", 0.0, 900.0, 85.0)
-        skin = st.number_input("Skin Thickness (mm)", 0.0, 100.0, 20.0)
-        bmi = st.number_input("BMI", 0.0, 60.0, 25.0)
+with c2:
+    insulin = st.number_input("Insulin (mu U/ml)", min_value=0.0, max_value=900.0, value=None, placeholder="Enter insulin")
+    skin = st.number_input("Skin Thickness (mm)", min_value=0.0, max_value=100.0, value=None, placeholder="Enter skin thickness")
+    bmi = st.number_input("BMI", min_value=0.0, max_value=60.0, value=None, placeholder="Enter BMI")
 
     predict_btn = st.button("Predict Risk")
 
@@ -109,6 +109,9 @@ with col2:
     st.subheader("Prediction Result")
 
     if predict_btn:
+    if None in [age, glucose, bp, insulin, skin, bmi]:
+        st.warning("⚠ Please fill all fields before prediction.")
+    else:
         risk = calculate_risk(age, glucose, bp, insulin, skin, bmi)
 
         st.progress(risk / 100)
@@ -131,6 +134,7 @@ with col2:
 st.markdown("""
 <hr>
 <center>
-<p style='color:grey'>Developed by Aakash Rajaram | Machine Learning Portfolio Project</p>
+<p style='color:grey'>Developed by Hairtha U | Machine Learning Portfolio Project</p>
 </center>
 """, unsafe_allow_html=True)
+
