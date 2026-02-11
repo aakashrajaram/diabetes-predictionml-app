@@ -68,7 +68,7 @@ with col1:
 
     c1, c2 = st.columns(2)
 
-    with c1:
+with c1:
     age = st.number_input("Age", min_value=1, max_value=120, value=None, placeholder="Enter age")
     glucose = st.number_input("Glucose Level (mg/dL)", min_value=0.0, max_value=300.0, value=None, placeholder="Enter glucose")
     bp = st.number_input("Blood Pressure (mm Hg)", min_value=0.0, max_value=200.0, value=None, placeholder="Enter BP")
@@ -137,4 +137,5 @@ st.markdown("""
 <p style='color:grey'>Developed by Hairtha U | Machine Learning Portfolio Project</p>
 </center>
 """, unsafe_allow_html=True)
+
 
